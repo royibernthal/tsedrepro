@@ -15,7 +15,7 @@ export class HelloWorldController {
   private TestGender: MongooseModel<TestGender>;
 
   @Post("/create")
-  @Returns(201, TestUser) // ! important now with v6 it's preferable to add this decorator for json-mapper (mostly when you use Mongoose)
+  @Returns(201) // ! important now with v6 it's preferable to add this decorator for json-mapper (mostly when you use Mongoose)
   async create() {
     const gender = new this.TestGender(new TestGender());
     const user = new this.TestUser(new TestUser());
@@ -29,6 +29,10 @@ export class HelloWorldController {
 
     await user.save();
 
-    return user; // Isn't necessary to map the model.
+    return {
+      id: user.id,
+      name: user.name,
+      interests: user.interests
+    };
   }
 }
