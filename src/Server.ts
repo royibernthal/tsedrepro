@@ -9,6 +9,7 @@ import methodOverride from 'method-override';
 import cors from 'cors';
 import '@tsed/ajv';
 import '@tsed/mongoose';
+import '@tsed/swagger';
 import mongooseConfig from './config/mongoose';
 
 
@@ -36,7 +37,7 @@ if (isProduction) {
 @Configuration({
   rootDir,
   acceptMimes: ['application/json'],
-  httpPort: process.env.PORT || 8083,
+  httpPort: process.env.PORT || 8030,
   httpsPort: false, // CHANGE
   logger: {
     disableRoutesSummary: isProduction
@@ -49,6 +50,12 @@ if (isProduction) {
   mongoose: mongooseConfig,
   exclude: [
     '**/*.spec.ts'
+  ],
+  swagger: [
+    {
+      path: "/doc",
+      specVersion: "3.0.1"
+    }
   ]
 })
 export class Server {

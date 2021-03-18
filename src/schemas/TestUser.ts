@@ -5,7 +5,6 @@ import TestGender from './TestGender';
 
 @Model()
 export default class TestUser {
-
   @ObjectID('id')
   _id: string;
 
@@ -14,5 +13,4 @@ export default class TestUser {
   
   @Ref(TestGender)
   interests: Ref<TestGender>[];
-
 }
