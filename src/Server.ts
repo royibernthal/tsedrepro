@@ -10,7 +10,7 @@ import cors from 'cors';
 import '@tsed/ajv';
 import '@tsed/mongoose';
 import '@tsed/swagger';
-import mongooseConfig from './config/mongoose';
+//import mongooseConfig from './config/mongoose';
 
 
 export const rootDir = __dirname;
@@ -47,16 +47,16 @@ if (isProduction) {
       `${rootDir}/controllers/**/*.ts`
     ]
   },
-  mongoose: mongooseConfig,
+  //mongoose: mongooseConfig,
   exclude: [
     '**/*.spec.ts'
   ],
-  swagger: [
+  /*swagger: [
     {
       path: "/doc",
       specVersion: "3.0.1"
     }
-  ]
+  ]*/
 })
 export class Server {
   @Inject()
