@@ -6,8 +6,7 @@
     "build": "npm run tsc",
     "tsc": "tsc --project tsconfig.compile.json",
     "tsc:w": "tsc --project tsconfig.json -w",
-    "start": "tsnd --inspect --ignore-watch node_modules --respawn --transpile-only -r tsconfig-paths/register src/index.ts",
-    "start:prod": "cross-env NODE_ENV=production node dist/index.js"
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "@tsed/ajv": "^6.34.2",
